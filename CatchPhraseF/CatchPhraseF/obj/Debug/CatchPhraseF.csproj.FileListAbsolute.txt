@@ -1,0 +1,14 @@
+c:\users\bavad\documents\visual studio 2015\Projects\CatchPhraseF\CatchPhraseF\bin\Debug\CatchPhraseF.exe.config
+c:\users\bavad\documents\visual studio 2015\Projects\CatchPhraseF\CatchPhraseF\bin\Debug\CatchPhraseF.exe
+c:\users\bavad\documents\visual studio 2015\Projects\CatchPhraseF\CatchPhraseF\bin\Debug\CatchPhraseF.pdb
+c:\users\bavad\documents\visual studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.csprojResolveAssemblyReference.cache
+c:\users\bavad\documents\visual studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.Properties.Resources.resources
+c:\users\bavad\documents\visual studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.csproj.GenerateResource.Cache
+c:\users\bavad\documents\visual studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.exe
+c:\users\bavad\documents\visual studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.pdb
+c:\users\bavad\documents\visual studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.Form1.resources
+C:\Users\bavad\Documents\Visual Studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.AddAuthor.resources
+C:\Users\bavad\Documents\Visual Studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.AutorsInfo.resources
+C:\Users\bavad\Documents\Visual Studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.AddSource.resources
+C:\Users\bavad\Documents\Visual Studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.SourcesInfo.resources
+C:\Users\bavad\Documents\Visual Studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.AddPhrase.resources
