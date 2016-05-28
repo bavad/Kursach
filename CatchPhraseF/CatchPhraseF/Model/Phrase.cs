@@ -10,45 +10,38 @@ namespace CatchPhraseF.Model
     class Phrase
     {
         public string Content { get; set; }
-        public string Year { get; set; }     // !!!
+        public string Year { get; set; }     
         public Author Author { get; set; }
         public Source Source { get; set; }
+        public string Theme { get; set; }
         public double Id { get; set; }
+        public bool Change { get; set; }
+        public bool AddChange { get; set; }
+
         public Phrase()
         {
             Content = "";
             Year = "";
             Author = null;
             Source = null;
+            Theme = "";
             Id = -1;
         }
-        public Phrase(string c, string y, Author a, Source s,double i)
+        public Phrase(string c, string y, Author a, Source s,string t,double i)
         {
             Content = c;
             Year = y;
             Author = a;
             Source = s;
+            Theme = t;
             Id = i;
         }
-        public bool Find(string s)
+        
+        public override string ToString() // Переопределение метода ToString().
         {
-            string temp = "";
-            for (int i = 0; i <= Content.Length - s.Length; i++)
-            {
-                for (int j = i; j < i + s.Length; j++)
-                {
-                    temp += Content[j];
-                }
+            return String.Format("{0}({1},{2},{3}).", Content, Author.Name, Source.Name, Year);
+        }
 
-                if (temp.Equals(s))
-                    return true;
-                temp = "";
-            }
-            return false;
-        }
-        public override string ToString()
-        {
-            return String.Format("{0}({1},{2},{3}).", Content, Author.Name, Source, Year);
-        }
+        
     }
 }

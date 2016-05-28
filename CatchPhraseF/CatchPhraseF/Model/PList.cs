@@ -19,59 +19,50 @@ namespace CatchPhraseF.Model
             set { phrases = value; }            
         }
 
-        public Phrase this[int i]
+        public Phrase this[int i] // Индексатор для коллекции фраз.
         {
             get { return phrases[i]; }
             set { phrases[i] = value; }            
         }
-        public int Length
+
+        public int Length // Свойство - длина коллекции фраз.
         {
             get { return phrases.Count; }
         }
-        public void Write()
+
+        public void Write() // Сериализация коллекции фраз.
         {
-            BinaryFormatter binFormat = new BinaryFormatter();
-            try
+            BinaryFormatter binFormat = new BinaryFormatter();            
+            using (Stream fStream = new FileStream("plist.dat", FileMode.OpenOrCreate))
             {
-                using (Stream fStream = new FileStream("plist.dat", FileMode.OpenOrCreate))
-                {
-                    binFormat.Serialize(fStream, phrases);
-                }
+                binFormat.Serialize(fStream, phrases);
             }
-            catch { }
+            
         }
-        public void Read()
+        public void Read() // Десериализация коллекции фраз.
         {
-            BinaryFormatter binFormat = new BinaryFormatter();
-            try
+            BinaryFormatter binFormat = new BinaryFormatter();            
+            using (Stream fStream = new FileStream("plist.dat", FileMode.Open))
             {
-                using (Stream fStream = new FileStream("plist.dat", FileMode.Open))
-                {
-                    phrases = (List<Phrase>)binFormat.Deserialize(fStream);
-                }
+                phrases = (List<Phrase>)binFormat.Deserialize(fStream);
             }
-            catch { }
+            
         }
-        public void Add(Phrase q)
+
+        public void Add(Phrase q) // Добавление фразы в коллекцию.
         {
             phrases.Add(q);
         }
-        public void Remove(Phrase q)
+        public void Remove(Phrase q) // Удаление фразы из коллекции.
         {
             phrases.Remove(q);
         }
-
-        public override string ToString()
+        public void RemoveAt(int i) // Удаление фразы из коллекции по номеру.
         {
-            Read();
-            string r = "";
-            foreach (Phrase q in phrases)
-            {
-                r += q.ToString();
-            }
-            return r;
-        }
-        public string RemoveSpaces(string s)
+            phrases.RemoveAt(i);
+        }        
+
+        public string RemoveSpaces(string s) // Убирает лишние пробелы.
         {
             string[] s1 = s.Split(' ');
             string r = "";
@@ -87,6 +78,66 @@ namespace CatchPhraseF.Model
                 }
             }
             return r;
+        }
+
+        public List<string> AllP() // Возвращает строковую коллекцию фраз.
+        {
+            Read();
+            List<string> r = new List<string>();
+            foreach (Phrase p in phrases)
+            {
+                r.Add(p.ToString());
+            }
+            return r;
+        }
+
+        public List<string> Search(string s, int n) // Метод поиска
+        {
+            Read();
+            s = s.ToLower();
+            List<string> r = new List<string>();
+            for (int k = 0; k < Length; k++)
+            {
+                string sArea = "";
+                if (n == 0)
+                    sArea = this[k].Content.ToLower(); // Поиск по тексту.
+                if (n == 1)
+                    sArea = this[k].Author.Name.ToLower(); // По авторам.
+                if (n == 2)
+                    sArea = this[k].Theme.ToLower(); // По теме.
+                if (n == 3)
+                    sArea = this[k].Source.Name.ToLower();// По источнику.
+                if (n == 4)
+                    sArea = this[k].Source.Year;// По году.
+
+                string temp = "";
+                for (int i = 0; i <= sArea.Length - s.Length; i++)
+                {
+                    for (int j = i; j < i + s.Length; j++)   
+                    {
+                        temp += sArea[j];
+                    }
+
+                    if (temp.Equals(s))
+                    {                        
+                        r.Add(this[k].ToString());
+                        break;
+                    }
+
+                    temp = "";
+                }
+            }
+            return r;
+        }
+        public bool Exist(Phrase a) // Метод, проверяющий наличие фразы в базе.
+        {
+            foreach (Phrase p in phrases)
+            {
+                if (p.Author.Name == a.Author.Name && p.Source.Name == a.Source.Name && p.Theme == a.Theme && p.Content == a.Content)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

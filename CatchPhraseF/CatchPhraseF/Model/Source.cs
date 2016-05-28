@@ -14,6 +14,8 @@ namespace CatchPhraseF.Model
         public string Year { get; set; }
         public string Info { get; set; }
         public double Id { get; set; }
+        public bool Change { get; set; }
+        public bool AddChange { get; set; }
 
         public Source(string n, Author a, string y,string i,double id)
         {

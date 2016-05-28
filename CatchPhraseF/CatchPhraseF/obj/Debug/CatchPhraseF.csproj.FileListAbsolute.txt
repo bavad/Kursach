@@ -12,3 +12,4 @@ C:\Users\bavad\Documents\Visual Studio 2015\Projects\CatchPhraseF\CatchPhraseF\o
 C:\Users\bavad\Documents\Visual Studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.AddSource.resources
 C:\Users\bavad\Documents\Visual Studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.SourcesInfo.resources
 C:\Users\bavad\Documents\Visual Studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.AddPhrase.resources
+C:\Users\bavad\Documents\Visual Studio 2015\Projects\CatchPhraseF\CatchPhraseF\obj\Debug\CatchPhraseF.AddTheme.resources

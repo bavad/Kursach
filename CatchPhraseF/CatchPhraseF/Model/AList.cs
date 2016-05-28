@@ -19,63 +19,57 @@ namespace CatchPhraseF.Model
             set { authors = value; }            
         }
 
-        public Author this[int i]
+        public Author this[int i] // Индексатор для коллекции авторов.
         {
             get { return authors[i]; }
             set { authors[i] = value; }            
         }
-        public int Length
+        public int Length // Свойство - длина коллекции авторов. 
         {
             get { return authors.Count; }
         }
 
-        public void Write()
-        {
-            
+        public void Write() // Сериализация коллекции авторов.
+        {           
             BinaryFormatter binFormat = new BinaryFormatter();
-            try
+            using (Stream fStream = new FileStream("alist.dat", FileMode.OpenOrCreate))
             {
-                using (Stream fStream = new FileStream("alist.dat", FileMode.OpenOrCreate))
-                    {
-                        binFormat.Serialize(fStream, authors);
-                    }
-            }
-            catch { }
+                binFormat.Serialize(fStream, authors);
+            }                
+           
         }
 
-        public void Read()
+        public void Read() // Десериализация коллекции авторов.
         {
-            BinaryFormatter binFormat = new BinaryFormatter();
-            try
+            BinaryFormatter binFormat = new BinaryFormatter();            
+            using (Stream fStream = new FileStream("alist.dat", FileMode.OpenOrCreate))
             {
-                using (Stream fStream = new FileStream("alist.dat", FileMode.OpenOrCreate))
-                {
-                    authors = (List<Author>)binFormat.Deserialize(fStream);
-                }
+                authors = (List<Author>)binFormat.Deserialize(fStream);
             }
-            catch { }
+           
         }
 
-        public void Add(Author a)
+        public void Add(Author a) // Добавление автора в коллекцию.
         {
             authors.Add(a);
         }
 
-        public void RemoveAt(int n)
+        public void RemoveAt(int n) // Удаление автора из коллекции по номеру.
         {
             authors.RemoveAt(n);
 
         }
-        public bool Exist(Author a)
+        public bool Exist(Author a) // Метод, проверяющий наличие автора в базе.
         {
             foreach (Author x in authors)
             {
                 if (x.Name == a.Name && x.Born == a.Born && x.Die == a.Die && a.Bio == x.Bio)
                     return true;
             }
+            
             return false;
         }
-        public bool checkDate(string s)
+        public bool checkDate(string s) // Прверка даты на корректность.
         {
             string[] s1 = s.Split('.');
             if (s1[0] == "" && s1[1] == "" && s1[2] == "")
@@ -103,7 +97,7 @@ namespace CatchPhraseF.Model
 
             return true;
         }
-        public string RemoveSpaces(string s)
+        public string RemoveSpaces(string s) // Убирает лишние пробелы из строки.
         {
             string[] s1 = s.Split(' ');
             string r = "";
