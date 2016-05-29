@@ -57,7 +57,7 @@ namespace CatchPhraseF
                 add = false;
                 AddButton.Text = "Изменить";
                 Text = "Изменить информацию об источнике";
-                for (int i = 0; i < alist.Length; i++)
+                for (int i = 0; i < slist.Length; i++)
                 {
                     if (slist[i].Change)
                     {
@@ -70,7 +70,7 @@ namespace CatchPhraseF
                 }
 
             }
-            alist[0].AddChange = false;
+            slist[0].AddChange = false;
             
         }
 
@@ -123,7 +123,7 @@ namespace CatchPhraseF
                         slist[i].Year = ytextBox.Text;
                         slist[i].Author = alist[acomboBox.SelectedIndex];
                         slist[i].Info = slist.RemoveSpaces(inftextBox.Text);
-                        alist[i].Change = false;
+                        slist[i].Change = false;
                         for (int j = 0; j < plist.Length; j++)
                         {
                             if (plist[j].Source.Id == slist[i].Id)
